@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Dashboard</h2>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.income.label }} {{ form.income() }}<br>
+        {{ form.expenses.label }} {{ form.expenses() }}<br>
+        {{ form.savings.label }} {{ form.savings() }}<br>
+        {{ form.investments.label }} {{ form.investments() }}<br>
+        {{ form.goals.label }} {{ form.goals() }}<br>
+        {{ form.submit() }}
+    </form>
+    
+    <h3>Predicted Expenses: {{ prediction }}</h3>
+    <h3>Recommendations: {{ recommendation }}</h3>
+    <h3>Alert: {{ alert }}</h3>
+
+    <canvas id="financialChart"></canvas>
+    <script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+{% endblock %}
